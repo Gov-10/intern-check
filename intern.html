@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Goldman Sachs - Internship Portal</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f6f8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0px 5px 20px rgba(0,0,0,0.1);
+      width: 400px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #1a1a1a;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #0f3057;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #005377;
+    }
+
+    #progress-container {
+      display: none;
+      margin-top: 20px;
+    }
+
+    #progress-bar {
+      width: 0%;
+      height: 20px;
+      background-color: #1abc9c;
+      border-radius: 10px;
+    }
+
+    #thank-you {
+      display: none;
+      font-size: 18px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Goldman Sachs Internship Portal</h2>
+  <p>Submit your resume for review:</p>
+  <input type="text" placeholder="Full Name" required />
+  <input type="email" placeholder="Email Address" required />
+  <input type="file" required />
+  <button onclick="startRickroll()">Upload & Submit</button>
+
+  <div id="progress-container">
+    <p>Uploading your resume...</p>
+    <div style="width: 100%; background: #eee; border-radius: 10px;">
+      <div id="progress-bar"></div>
+    </div>
+  </div>
+
+  <div id="thank-you">
+    ✅ Thank you for submitting your application! Redirecting...
+  </div>
+</div>
+
+<script>
+  function startRickroll() {
+    const progress = document.getElementById("progress-container");
+    const bar = document.getElementById("progress-bar");
+    const thankYou = document.getElementById("thank-you");
+
+    progress.style.display = "block";
+    let width = 0;
+
+    const interval = setInterval(() => {
+      if (width >= 100) {
+        clearInterval(interval);
+        progress.style.display = "none";
+        thankYou.style.display = "block";
+        setTimeout(() => {
+          window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+        }, 3000);
+      } else {
+        width++;
+        bar.style.width = width + "%";
+      }
+    }, 30); // about 3 seconds total
+  }
+</script>
+
+</body>
+</html>
